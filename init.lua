@@ -1,0 +1,5 @@
+require("keymaps")
+require("plugins")
+require("settings")
+require("lualine/bubbles")
+require("cmp")
