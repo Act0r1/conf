@@ -74,16 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["Comment.nvim"] = {
-    loaded = true,
-    path = "/home/actor/.local/share/nvim/site/pack/packer/start/Comment.nvim",
-    url = "https://github.com/numToStr/Comment.nvim"
-  },
-  LuaSnip = {
-    loaded = true,
-    path = "/home/actor/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ["ayu-vim"] = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/ayu-vim",
@@ -104,15 +94,30 @@ _G.packer_plugins = {
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["cmp-tabnine"] = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/cmp-tabnine",
+    url = "https://github.com/tzachar/cmp-tabnine"
+  },
   cmp_luasnip = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["comment.nvim"] = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/comment.nvim",
+    url = "https://github.com/numtostr/comment.nvim"
   },
   dracula = {
     loaded = true,
@@ -132,7 +137,7 @@ _G.packer_plugins = {
   harpoon = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/ThePrimeagen/harpoon"
+    url = "https://github.com/theprimeagen/harpoon"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -149,6 +154,21 @@ _G.packer_plugins = {
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  luasnip = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/luasnip",
+    url = "https://github.com/l3mon4d3/luasnip"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   neoformat = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/neoformat",
@@ -158,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -214,10 +239,20 @@ _G.packer_plugins = {
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  undotree = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
+  },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
   },
   ["vim-js"] = {
     loaded = true,
@@ -247,7 +282,7 @@ _G.packer_plugins = {
   ["vim-python-pep8-indent"] = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/vim-python-pep8-indent",
-    url = "https://github.com/Vimjas/vim-python-pep8-indent"
+    url = "https://github.com/vimjas/vim-python-pep8-indent"
   },
   ["vim-sleuth"] = {
     loaded = true,
@@ -259,6 +294,11 @@ _G.packer_plugins = {
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/vim-smoothie",
     url = "https://github.com/psliwka/vim-smoothie"
   },
+  ["vim-solidity"] = {
+    loaded = true,
+    path = "/home/actor/.local/share/nvim/site/pack/packer/start/vim-solidity",
+    url = "https://github.com/tomlion/vim-solidity"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/vim-surround",
@@ -267,7 +307,7 @@ _G.packer_plugins = {
   ["yats.vim"] = {
     loaded = true,
     path = "/home/actor/.local/share/nvim/site/pack/packer/start/yats.vim",
-    url = "https://github.com/HerringtonDarkholme/yats.vim"
+    url = "https://github.com/herringtondarkholme/yats.vim"
   }
 }
 
