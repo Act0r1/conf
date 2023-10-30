@@ -19,6 +19,7 @@ M.general = {
     ["<Esc>"] = { ":noh <CR>", "Clear highlights" },
     -- switch between windows
     ["<C-h>"] = { "<C-w>h", "Window left" },
+    ["ww"] = {"viwp"},
     ["<C-l>"] = { "<C-w>l", "Window right" },
     ["<C-j>"] = { "<C-w>j", "Window down" },
     ["<C-k>"] = { "<C-w>k", "Window up" },
@@ -53,6 +54,11 @@ M.general = {
         vim.lsp.buf.format { async = true }
       end,
       "LSP formatting",
+    },
+    ["ga"] = {
+      function()
+        vim.lsp.buf.code_action { async = true }
+      end,
     },
   },
 
@@ -245,14 +251,14 @@ M.lspconfig = {
     },
   },
 
-  v = {
-    ["<leader>ca"] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      "LSP code action",
-    },
-  },
+  -- v = {
+  --   ["<leader>ca"] = {
+  --     function()
+  --       vim.lsp.buf.code_action()
+  --     end,
+  --     "LSP code action",
+  --   },
+  -- },
 }
 
 M.nvimtree = {
