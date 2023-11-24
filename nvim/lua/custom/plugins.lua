@@ -5,6 +5,12 @@ local plugins = {
 
 	-- Override plugin definition options
 
+  {
+    "neoclide/coc.nvim",
+    branch='release',
+    lazy = false,
+  },
+
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
