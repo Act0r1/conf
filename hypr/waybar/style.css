@@ -75,7 +75,7 @@ window#waybar {
 #clock {
     color: #E6B9C6;
     background-color: #282828;
-    border-radius: 0px 0px 0px 24px;
+    border-radius: 24px 24px 24px 24px;
     padding-left: 13px;
     padding-right: 15px;
     margin-right: 0px;
