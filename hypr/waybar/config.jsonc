@@ -1,17 +1,21 @@
 {
     "position": "top",
     "layer": "top",
-    "output": "eDP-1",
+    "output": ["eDP-1", "HDMI-A-1"],
     "height": 16,
+    "spacing":5,
     "margin-top": 0,
     "margin-bottom": 0,
     "margin-left": 0,
     "margin-right": 0,
     "modules-left": ["hyprland/workspaces","hyprland/mode", "custom/playerctl", "custom/playerlabel"],
     "modules-center": ["clock" ],
-    "modules-right": ["hyprland/language", "pulseaudio", "backlight","battery","cpu","keyboard-state","temperature","tray", "custom/power"],
+    "modules-right": ["hyprland/language", "pulseaudio", "backlight","battery","cpu","keyboard-state","temperature","tray", "custom/power", "custom/notifications"],
     
-    // Modules configuration
+    "custom/notifications": {
+        "format":"🔔",
+        "on-click":"makoctl dismiss -a",
+    },
     "custom/power": {
         "format": " ⏻ ",
         "tooltip": false,
@@ -22,7 +26,7 @@
         "interval":1,
 		"tooltip": "true",
         	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        	"format-alt": " {:%d/%m/%s}"
+        	"format-alt": " {:%d/%m/%y}"
 	},
     // "hyprland/language" :{
     //     "spacing"
@@ -38,8 +42,8 @@
 		"format": "{icon}",
 		"on-click": "activate",
 		"format-icons": {
-			"1": "一",
-			"2": "二",
+			"1": " Firefox",
+			"2": " Telegram",
 			"3": "三",
 			"4": "四",
 			"5": "五",
@@ -50,17 +54,17 @@
     },
     },
 
-    // "custom/playerctl": {
-    //   "format": "{icon}",
-    //   "return-type": "json",
-    //   "max-length": 64,
-    //   "escape":true,
-    //   "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    //   "format-icons": {
-    //     "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
-    //     "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
-    //   },
-    // },
+    "custom/playerctl": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 44,
+      "escape":true,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "format-icons": {
+        "Playing": "<span foreground='#E5B9C6'>󰒮 󰏥 󰒭</span>",
+        "Paused": "<span foreground='#928374'>󰒮 󰐌 󰒭</span>"
+      },
+    },
 
     "custom/playerlabel": {
       "format": "<span>{}</span>",
