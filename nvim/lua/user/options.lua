@@ -1,0 +1,23 @@
+vim.opt.nu = true
+vim.opt.spell=false
+vim.opt.relativenumber = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.tabstop = 4
+vim.opt.clipboard = "unnamedplus"
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.showcmd = true
+vim.opt.cmdheight = 1
+vim.api.nvim_set_hl(0,"Normal", {bg = "none"})
+-- vim.g.VM_maps = {}
+-- vim.g.VM_maps['Find Under'] = '<C-/>'           -- replace C-n
+-- vim.g.VM_maps['Find Subword Under'] = '<C-/>'   -- replace visual C-n
+vim.g.VM_maps = {
+  ["I BS"] = '', -- disable backspace mapping
+}
