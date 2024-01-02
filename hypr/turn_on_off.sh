@@ -19,7 +19,6 @@ enable_touchpad() {
 disable_touchpad() {
   printf "false" > "$STATUS_FILE"
 
-  notify-send -u normal "Disabling Touchpad"
 
   hyprctl keyword "device:$HYPRLAND_DEVICE:enabled" false
 }
