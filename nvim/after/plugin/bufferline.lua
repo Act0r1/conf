@@ -1,1 +1,1 @@
-
+require("bufferline").setup{}

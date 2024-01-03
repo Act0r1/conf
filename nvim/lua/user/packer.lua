@@ -1,3 +1,7 @@
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
+
+-- Only required if you have packer configured as `opt`
+
 vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function(use)
     use({
@@ -8,7 +12,7 @@ return require("packer").startup(function(use)
     use("wbthomason/packer.nvim")
     use("https://github.com/mg979/vim-visual-multi")
     use("xiyaowong/transparent.nvim")
-    use("windwp/nvim-ts-autotag")
+    -- use("windwp/nvim-ts-autotag")
     use("AlexvZyl/nordic.nvim")
 
     -- using packer.nvim
@@ -94,3 +98,6 @@ return require("packer").startup(function(use)
         end,
     })
 end)
+
+
+
