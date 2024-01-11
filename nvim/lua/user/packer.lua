@@ -16,8 +16,6 @@ return require("packer").startup(function(use)
     use("AlexvZyl/nordic.nvim")
 
     -- using packer.nvim
-    -- use({ "echasnovski/mini.nvim", branch = "stable" })
-    use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
     use({
         "windwp/nvim-autopairs",
         config = function()
@@ -25,14 +23,6 @@ return require("packer").startup(function(use)
         end,
     })
     -- Lua
-    use({
-        "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup({})
-        end,
-    })
     use("folke/tokyonight.nvim")
     -- use("folke/flash.nvim")
     use("hrsh7th/nvim-cmp") -- The completion plugin

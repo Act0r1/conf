@@ -1,7 +1,6 @@
 local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 local key = vim.keymap.set
-local wk = require("which-key")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 key("n", ";", ":")
 key("v", "<A-j>", ":m .+1<CR>==", opts)
