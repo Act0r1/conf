@@ -4,7 +4,8 @@
 
 vim.cmd([[packadd packer.nvim]])
 return require("packer").startup(function(use)
-    use ("xiyaowong/transparent.nvim")
+    use("mattn/emmet-vim")
+    use("xiyaowong/transparent.nvim")
     use({
         "nvim-treesitter/nvim-treesitter-textobjects",
         after = "nvim-treesitter",
@@ -12,7 +13,12 @@ return require("packer").startup(function(use)
     })
     use("wbthomason/packer.nvim")
     use("https://github.com/mg979/vim-visual-multi")
-    -- use("windwp/nvim-ts-autotag")
+    use({
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require('nvim-ts-autotag').setup()
+        end
+    })
     use("AlexvZyl/nordic.nvim")
 
     -- using packer.nvim
@@ -78,7 +84,7 @@ return require("packer").startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { "nvim-lua/plenary.nvim" } },
     })
-
+    use("ThePrimeagen/harpoon")
     use({
         "nvim-treesitter/nvim-treesitter",
         run = function()

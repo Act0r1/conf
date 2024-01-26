@@ -3,6 +3,9 @@ vim.g.mapleader = " "
 local key = vim.keymap.set
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 key("n", ";", ":")
+key("n", "<leader>,", ":bprev<CR>")
+key("n", "pi", ":PackerSync<CR>")
+key("n", "<leader>.", ":bnext<CR>")
 key("v", "<A-j>", ":m .+1<CR>==", opts)
 key("v", "<A-k>", ":m .-2<CR>==", opts)
 key("v", "p", '"_dP', opts)
