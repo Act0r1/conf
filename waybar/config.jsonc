@@ -22,11 +22,11 @@
         "on-click": "wlogout --protocol layer-shell"
     },
 	"clock": {
-		"format": " {:%H:%M:%S}",
+		"format": "  {:%H:%M:%S}",
         "interval":1,
 		"tooltip": "true",
-        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        	"format-alt": " {:%d/%m/%y}"
+        	"tooltip-format": "<big> {:%Y %B} </big>\n<tt><small>{calendar}</small></tt>",
+        	"format-alt": "  {:%d/%m/%y}"
 	},
     // "hyprland/language" :{
     //     "spacing"
@@ -39,14 +39,13 @@
         "disable-scroll": false,
         "on-scroll-up": "hyprctl dispatch workspace -1",
         "on-scroll-down": "hyprctl dispatch workspace +1",
-		"format": "{icon}",
+		"format": "{icon} ",
 		"on-click": "activate",
 		"format-icons": {
-			"1": " Firefox",
-			"2": " Telegram",
-			"3": "三",
-			"4": "四",
-			"5": "五",
+			"1": "  Firefox",
+			"2": "  Telegram",
+			"3": "🐧 Terminal",
+			"4": "\uf268  Chrome",
 			// "urgent": "",
 			// "active": "",
 			// "default": "󰧞",
@@ -90,7 +89,7 @@
             "critical": 15
         },
         "format":"{icon}  {capacity}%",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}%  ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
