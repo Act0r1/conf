@@ -10,10 +10,8 @@
 
 #!/bin/bash
 
-# Get the currently running sinks
 running_sinks=$(pactl list sinks | awk '/State:.*RUNNING/{getline; print $2}')
 if [[ -n $running_sinks ]]; then
-    # Toggle between Alsa output and Bluetooth output
     case $running_sinks in
         "alsa_output.pci-0000_03_00.6.analog-stereo")
             pactl set-default-sink "bluez_output.1C_6E_4C_8E_6F_77.1"
