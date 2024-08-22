@@ -7,7 +7,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+export EDITOR=nvim
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -74,25 +74,47 @@ ZSH_THEME="robbyrussell"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+# export MANPATH="/usr/local/man:$MANPATH"
+
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z zsh-syntax-highlighting)
+plugins=(git z zsh-syntax-highlighting zsh-vi-mode)
+
 alias n="nvim"
 alias p="python3"
 alias nz="nvim ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias b="bat"
 alias findfn="find -type f -name "
-source $ZSH/oh-my-zsh.sh
 
-bindkey '^P' history-beginning-search-backward
-bindkey '^N' history-beginning-search-forward
-# User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
 
+function search_forward() {
+  bindkey "^N" history-beginning-search-forward
+}
+
+function search_backward() {
+  bindkey "^P" history-beginning-search-backward
+}
+
+function fzf_ctrl_r_opts () {
+    export FZF_CTRL_R_OPTS="
+      --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+      --color header:italic
+      --header 'Press CTRL-Y to copy command into clipboard'"
+    
+}
+function my_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
+zvm_after_init_commands+=(my_init)
+zvm_after_init_commands+=(search_forward)
+zvm_after_init_commands+=(search_backward)
+zvm_after_init_commands+=(my_init)
+zvm_after_init_commands+=(fzf_ctrl_r_opts)
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+source $ZSH/oh-my-zsh.sh
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -112,13 +134,16 @@ bindkey '^N' history-beginning-search-forward
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Add Visual Studio Code (code)
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # bun completions
 [ -s "/Users/yea8er/.bun/_bun" ] && source "/Users/yea8er/.bun/_bun"
 
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="/Users/yea8er/Library/Python/3.9/bin:$PATH"
+# export PATH="/Users/yea8er/Library/Python/3.9/bin:$PATH"
 alias ls="exa --icons" 
+alias cd3="cd ../../.."
+alias cd3="cd ../../../.."
 
