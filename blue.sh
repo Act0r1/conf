@@ -10,7 +10,6 @@
 
 #!/bin/bash
 
-# Get the currently running sinks
 running_sinks=$(pactl list sinks | awk '/State:.*RUNNING/{getline; print $2}')
 if [[ -n $running_sinks ]]; then
     # Toggle between Alsa output and Bluetooth output
