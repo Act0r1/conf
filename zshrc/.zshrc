@@ -15,6 +15,38 @@ export EDITOR=nvim
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+
+# Функция для активации venv или .venv, если она существует и ещё не активирована
+# Функция для активации venv или .venv, если она существует и ещё не активирована
+activate_venv_if_exists() {
+    current_dir=$(pwd)
+
+    # Проверяем, находится ли текущая директория внутри tmp или Developers
+    if [[ "$current_dir" != */tmp/* && "$current_dir" != */Developers/* ]]; then
+        # Если текущая директория не внутри tmp или Developers, ничего не делаем
+        return
+    fi
+    # Проверяем, активировано ли уже виртуальное окружение
+    if [[ -z "$VIRTUAL_ENV" ]]; then
+        deactivate 2>/dev/null  # Деактивируем текущее виртуальное окружение, если оно активировано
+    fi
+    if [ -d "venv" ]; then
+        source venv/bin/activate
+        echo "Активировано виртуальное окружение 'venv'"
+    elif [ -d ".venv" ]; then
+        source .venv/bin/activate
+        echo "Активировано виртуальное окружение '.venv'"
+    fi
+}
+
+# Переопределяем команду cd, чтобы она вызывала активацию окружения при смене директории
+cd() {
+    builtin cd "$@"  # Выполняем стандартную команду cd
+    activate_venv_if_exists  # После смены директории вызываем активацию venv
+}
+
+# Используем команду `PROMPT_COMMAND`, чтобы автоматически проверять при каждом переходе в директорию
+# export PROMPT_COMMAND=activate_venv_if_exists
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -85,8 +117,7 @@ alias nz="nvim ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias b="bat"
 alias findfn="find -type f -name "
-
-
+alias pi="pip3 install"
 
 function search_forward() {
   bindkey "^N" history-beginning-search-forward
@@ -101,8 +132,12 @@ function fzf_ctrl_r_opts () {
       --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
       --color header:italic
       --header 'Press CTRL-Y to copy command into clipboard'"
+    export FZF_ALT_C_OPTS="
+      --walker-skip .git,node_modules,target
+      --preview 'tree -C {}'"
     
 }
+
 function my_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
@@ -138,12 +173,26 @@ source $ZSH/oh-my-zsh.sh
 # bun completions
 [ -s "/Users/yea8er/.bun/_bun" ] && source "/Users/yea8er/.bun/_bun"
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 # export PATH="/Users/yea8er/Library/Python/3.9/bin:$PATH"
 alias ls="exa --icons" 
+alias tpr="telepresence"
 alias cd3="cd ../../.."
 alias cd3="cd ../../../.."
+alias rn="rg --no-ignore --hidden"
+# Function to search for files using fzf with preview and open the selected file in VS Code
+fzf_code_open() {
+  local file
+  file=$(find . -type f | fzf --preview "bat {}")
+  
+  if [[ -n "$file" ]]; then
+    nvim "$file"
+  fi
+}
+
+zle -N fzf_code_open
+bindkey '^N' fzf_code_open
 
