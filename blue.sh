@@ -7,7 +7,6 @@
 #     pactl set-default-sink "alsa_output.pci-0000_03_00.6.analog-stereo"
 #     pactl set-default-source "alsa_output.pci-0000_03_00.6.analog-stereo"
 # fi
-
 !/bin/bash
 
 running_sinks=$(pactl list sinks | awk '/State:.*RUNNING/{getline; print $2}')
