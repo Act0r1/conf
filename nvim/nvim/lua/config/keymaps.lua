@@ -2,10 +2,6 @@ local opts = { noremap = true, silent = true }
 local key = vim.keymap.set
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- vim.keymap.set("n", "<space>f", function()
---     vim.lsp.buf.format({ async = true })
--- end, opts)
-
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
     require("conform").format({ async = true }, function(err)
         if not err then
@@ -16,6 +12,7 @@ vim.keymap.set({ "n", "v" }, "<leader>f", function()
         end
     end)
 end, { desc = "Format code" })
+
 -- autosave
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",

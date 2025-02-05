@@ -6,7 +6,12 @@ return {
     },
     build = ":MasonUpdate", -- Automatically update Mason when running Lazy sync
     opts = {
-        ensure_installed = { "lua-ls", "pyright", "clangd", "ts_ls" }, -- Example tools
+        ensure_installed = {
+            "lua-ls", --[[ "pyright" ]]
+            "basedpyright",
+            "clangd",
+            "ts_ls",
+        },             -- Example tools
         ui = {
             border = "rounded", -- Optional: adds rounded borders to Mason's UI
         },

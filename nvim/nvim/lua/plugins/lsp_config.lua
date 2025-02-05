@@ -1,6 +1,11 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        opts = {
+            inlay_hints = {
+                enabled = true,
+            },
+        },
         dependencies = {
             "saghen/blink.cmp",
             {
@@ -26,10 +31,35 @@ return {
                     },
                 },
             })
-            require("lspconfig").pyright.setup({ capabilites = capabilities })
+            -- require("lspconfig").pyright.setup({ capabilites = capabilities })
+            require("lspconfig").basedpyright.setup {
+                capabilites = capabilities,
+                settings = {
+                    basedpyright = {
+                        analysis = {
+                            autoSearchPaths = true,
+                            useLibraryCodeForTypes = true,
+                            typeCheckingMode = "basic",
+                            diagnosticMode = "workspace",
+                            inlayHints = {
+                                enabled = true,
+                                -- callArgumentNames = "none",
+                                -- variableTypes = true,
+                                -- functionReturnTypes = true,
+                                -- genericTypes = true,
+                            },
+                            -- diagnosticSeverityOverrides = {
+                            --     reportCallIssue = "none",
+                            -- }
+                        },
+                    },
+                }
+              }
             require("lspconfig").ts_ls.setup({ capabilites = capabilities })
             require("lspconfig").rust_analyzer.setup({ capabilites = capabilities })
+            require("lspconfig").ols.setup({ capabilites = capabilities })
             require("lspconfig").gopls.setup({ capabilites = capabilities })
+            -- require("lspconfig").jsonls.setup({ capabilites = capabilities })
 
             vim.api.nvim_create_autocmd("lspattach", {
                 group = vim.api.nvim_create_augroup("userlspconfig", {}),
