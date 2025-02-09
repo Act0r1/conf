@@ -6,7 +6,7 @@ config = {
     automatically_reload_config = true,
     enable_tab_bar = false,
     window_close_confirmation = "NeverPrompt",
-    window_decorations = "NONE",
+    window_decorations = "RESIZE",
     font = wezterm.font("Comic Mono"),
     font_size = 14.5,
     background = {
@@ -33,4 +33,11 @@ config = {
     },
 }
 config.color_scheme = "Tokyo Night"
+config.native_macos_fullscreen_mode = true
+config.window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+}
 return config
