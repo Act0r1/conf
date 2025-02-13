@@ -3,7 +3,7 @@ local key = vim.keymap.set
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
-    require("conform").format({ async = true }, function(err)
+    require("conform").format({ async = false }, function(err)
         if not err then
             local mode = vim.api.nvim_get_mode().mode
             if vim.startswith(string.lower(mode), "v") then
@@ -12,7 +12,8 @@ vim.keymap.set({ "n", "v" }, "<leader>f", function()
         end
     end)
 end, { desc = "Format code" })
-
+--
+--
 -- autosave
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
@@ -35,6 +36,8 @@ vim.keymap.set("n", "<Leader>bd", function()
 end, { noremap = true, silent = true })
 
 key("n", ";", ":")
+key("n", "qq", ":q!<CR>")
+key("n", "ww", ":w<CR>")
 key("n", "<leader>,", ":bprev<CR>")
 key("n", "<leader>.", ":bnext<CR>")
 key("n", "dl", ":g/^$/d<CR>")

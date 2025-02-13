@@ -6,6 +6,9 @@ return {
             indent = {
                 enable = true,
             },
+            highlight = {
+                enable = true,
+            },
             textobjects = {
                 select = {
                     enable = true,

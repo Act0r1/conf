@@ -32,7 +32,7 @@ return {
                 },
             })
             -- require("lspconfig").pyright.setup({ capabilites = capabilities })
-            require("lspconfig").basedpyright.setup {
+            require("lspconfig").basedpyright.setup({
                 capabilites = capabilities,
                 settings = {
                     basedpyright = {
@@ -53,8 +53,8 @@ return {
                             -- }
                         },
                     },
-                }
-              }
+                },
+            })
             require("lspconfig").ts_ls.setup({ capabilites = capabilities })
             require("lspconfig").rust_analyzer.setup({ capabilites = capabilities })
             require("lspconfig").ols.setup({ capabilites = capabilities })

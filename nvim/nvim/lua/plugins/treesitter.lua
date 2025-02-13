@@ -2,7 +2,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = true,
     build = ":TSUpdate",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
     depends = { "nvim-treesitter/nvim-treesitter-textobjects" },
     ensure_installed = {
         "python",
@@ -30,4 +30,7 @@ return {
         "vimdoc",
         "c",
     },
+    config = function()
+        require("nvim-treesitter").setup({})
+    end,
 }
